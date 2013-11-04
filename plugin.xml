@@ -4,7 +4,7 @@
     id="com.adobe.plugins.GAPlugin"
     version="2.3.0">
 
-    <name>GAPlugin</name>
+  <name>GAPlugin</name>
   <author>Bob Easterday</author>
 
   <description>
@@ -14,44 +14,47 @@
   <license>MIT</license>
 
   <js-module src="www/GAPlugin.js" name="GAPlugin">
-      <clobbers target="GAPlugin" />
+      <clobbers target="gaPlugin" />
   </js-module>
 
   <engines>
-      <engine name="cordova" version="&gt;=3.0.0" />
+      <engine name="cordova-ios" version=">=3.1.0" />
+      <engine name="cordova-android" version=">=3.0.0" />
   </engines>
 
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
       <feature name="GAPlugin" >
         <param name="android-package" value="com.adobe.plugins.GAPlugin"/>
       </feature>
-        </config-file>
+    </config-file>
 
-        <source-file src="src/android/GAPlugin.java"
-                target-dir="src/com/adobe/plugins" />
-        <source-file src="src/android/libGoogleAnalyticsV2.jar"
-                target-dir="libs" />
-    </platform>
+    <source-file src="src/android/GAPlugin.java" target-dir="src/com/adobe/plugins" />
+    <source-file src="src/android/libGoogleAnalyticsV2.jar" target-dir="libs" />
+  </platform>
 
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-          <feature name="GAPlugin">
-            <param name="ios-package" value="GAPlugin"/>
-          </feature>
-        </config-file>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="GAPlugin">
+        <param name="ios-package" value="GAPlugin"/>
+      </feature>
+    </config-file>
 
-        <source-file src="src/ios/GAPlugin.m" />
-        <source-file src="src/ios/GoogleAnalytics.a" framework="true" />
+    <framework src="UIKit.framework"/>
+    <framework src="CoreData.framework"/>
+    <framework src="SystemConfiguration.framework" />
 
-        <header-file src="src/ios/GAITransactionItem.h" />
-        <header-file src="src/ios/GAITransaction.h" />
-        <header-file src="src/ios/GAITracker.h" />
-        <header-file src="src/ios/GAITrackedViewController.h" />
-        <header-file src="src/ios/GAI.h" />
-        <header-file src="src/ios/GAPlugin.h" />
+    <header-file src="src/ios/GAPlugin.h" />
+    <source-file src="src/ios/GAPlugin.m" />
 
-        <framework src="CoreData.framework" />
-        <framework src="SystemConfiguration.framework" />
-    </platform>
+    <header-file src="src/ios/GAITransactionItem.h" />
+    <header-file src="src/ios/GAITransaction.h" />
+    <header-file src="src/ios/GAITracker.h" />
+    <header-file src="src/ios/GAITrackedViewController.h" />
+    <header-file src="src/ios/GAI.h" />
+
+    <source-file src="src/ios/GoogleAnalytics.a"/>
+
+    <!--framework src="Orthopedics/Plugins/com.adobe.plugins.GAPlugin/GoogleAnalytics.a"/-->
+  </platform>
 </plugin>

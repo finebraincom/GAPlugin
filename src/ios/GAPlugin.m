@@ -1,5 +1,4 @@
 #import "GAPlugin.h"
-#import "AppDelegate.h"
 
 @implementation GAPlugin
 - (void) initGA:(CDVInvokedUrlCommand*)command

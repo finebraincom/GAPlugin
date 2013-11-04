@@ -1,4 +1,4 @@
-# GAPlugin
+# GAPlugin for Phongap 3.1
 
 > Google Analytics plugin for iOS and Android. This allows you to post usage information to your Google Analytics account.
 
@@ -27,6 +27,12 @@ simply execute plugman as follows;
 		
 For additional info, take a look at the [Plugman Documentation](https://github.com/apache/cordova-plugman/blob/master/README.md)
 
+NOTE: After installation for iOS: 
+1. move GoogleAnalytics.a from 'Compiled Sources' in 'Link Binary with Libraries'
+2. Check that next frameworks are added to the libraries list: 'CoreData.framework', 'SystemConfiguration.framework' (installation with phonegap can fail to add this framework automatically)
+
+PLugin is available in javascript as global object 'gaPlugin'.
+
 ### PhoneGap Build
 
 To use this plugin with PhoneGap Build, add the following plugin reference to your config.xml
@@ -41,7 +47,6 @@ After onDeviceReady, create a local var and startup the plugin like so;
 	var gaPlugin;
 
 	function onDeviceReady() {
-		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(successHandler, errorHandler, "UA-12345678-1", 10);
 	}
 
