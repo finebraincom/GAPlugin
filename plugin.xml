@@ -2,10 +2,11 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.adobe.plugins.GAPlugin"
-    version="2.3.0">
+    version="3.0.0">
 
   <name>GAPlugin</name>
   <author>Bob Easterday</author>
+  <author>Iurii Kyian</author>
 
   <description>
     This plugin allows you to post usage information to your Google Analytics account.
@@ -43,17 +44,23 @@
     <framework src="UIKit.framework"/>
     <framework src="CoreData.framework"/>
     <framework src="SystemConfiguration.framework" />
+    <framework src="libsqlite3.0.dylib"/>
 
     <header-file src="src/ios/GAPlugin.h" />
     <source-file src="src/ios/GAPlugin.m" />
 
-    <header-file src="src/ios/GAITransactionItem.h" />
-    <header-file src="src/ios/GAITransaction.h" />
+    <header-file src="src/ios/GAIDictionaryBuilder.h" />
+    <header-file src="src/ios/GAIECommerceFields.h" />
+    <header-file src="src/ios/GAIECommerceProduct.h" />
+    <header-file src="src/ios/GAIECommerceProductAction.h" />
+    <header-file src="src/ios/GAIECommercePromotion.h" />
+    <header-file src="src/ios/GAIFields.h" />
+    <header-file src="src/ios/GAILogger.h" />
     <header-file src="src/ios/GAITracker.h" />
     <header-file src="src/ios/GAITrackedViewController.h" />
     <header-file src="src/ios/GAI.h" />
 
-    <source-file src="src/ios/GoogleAnalytics.a"/>
+    <source-file src="src/ios/libGoogleAnalyticsServices.a"/>
 
     <!--framework src="Orthopedics/Plugins/com.adobe.plugins.GAPlugin/GoogleAnalytics.a"/-->
   </platform>
