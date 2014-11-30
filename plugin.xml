@@ -60,7 +60,7 @@
     <header-file src="src/ios/GAITrackedViewController.h" />
     <header-file src="src/ios/GAI.h" />
 
-    <source-file src="src/ios/libGoogleAnalyticsServices.a"/>
+    <source-file src="src/ios/libGoogleAnalyticsServices.a" framework="true"/>
 
     <!--framework src="Orthopedics/Plugins/com.adobe.plugins.GAPlugin/GoogleAnalytics.a"/-->
   </platform>
