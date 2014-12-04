@@ -91,7 +91,7 @@
 {
     CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
 
-    [self writeJavascript:[commandResult toSuccessCallbackString:callbackID]];
+    [self.commandDelegate sendPluginResult:commandResult callbackId:callbackID];
 }
 
 -(void)failWithMessage:(NSString *)message toID:(NSString *)callbackID withError:(NSError *)error
@@ -99,7 +99,7 @@
     NSString        *errorMessage = (error) ? [NSString stringWithFormat:@"%@ - %@", message, [error localizedDescription]] : message;
     CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:errorMessage];
 
-    [self writeJavascript:[commandResult toErrorCallbackString:callbackID]];
+    [self.commandDelegate sendPluginResult:commandResult callbackId:callbackID];
 }
 
 -(void)dealloc
