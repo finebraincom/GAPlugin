@@ -1,4 +1,4 @@
-# GAPlugin for Phongap 3.1
+# GAPlugin for Phongap 4
 
 > Google Analytics plugin for iOS and Android. This allows you to post usage information to your Google Analytics account.
 
